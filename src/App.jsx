@@ -22,4 +22,16 @@ function App() {
   );
 }
 
+function getData() {
+  return fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      return json
+    })
+    .catch(e => {
+      console.error(e)
+    });
+}
+
 export default App;
