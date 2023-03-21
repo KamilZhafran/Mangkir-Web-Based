@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Mangkir App will be developed here! Just wait 🥶
         </p>
         <a
           className="App-link"
