@@ -6,6 +6,8 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { InputRecipe } from './pages/InputRecipe';
+import { Favorite } from './pages/Favorite';
+import { Recipe } from './pages/Recipe';
 
 function App() {
   const [data, dataset] = useState({});
@@ -34,13 +36,13 @@ function App() {
                     <button className='btn btn-success' type='submit'>Search</button>
                   </form>
                   <li className='nav-item'>
-                    <a href="#" className='nav-link'>Favorites</a>
+                    <Link to='/favorite' className='nav-link'>Favorites</Link>
                   </li>
                   <li className='nav-item'>
-                    <Link to='input' className='nav-link'>Upload</Link>
+                    <Link to='/input' className='nav-link'>Upload</Link>
                   </li>
                   <li className='nav-item'>
-                    <a href="#" className='nav-link'>Profile</a>
+                    <a href="/#" className='nav-link'>Profile</a>
                   </li>
                 </ul>
               </div>
@@ -51,6 +53,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/input" element={<InputRecipe />} />
+        <Route path='/favorite' element={<Favorite/>}/>
       </Routes>
     </>
   );
