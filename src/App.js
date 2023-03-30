@@ -9,17 +9,30 @@ import { InputRecipe } from './pages/InputRecipe';
 import { Favorite } from './pages/Favorite';
 import { Recipe } from './pages/Recipe';
 
+// function getMainData() {
+//   const [data, dataset] = useState({});
+
+//   useEffect(() => {
+//     (async() => {
+//       const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
+//       const parsed = await response.json();
+//       dataset(parsed);
+//     })();
+//   }, []);
+
+//   return data;
+// }
+
 function App() {
   const [data, dataset] = useState({});
-
-  useEffect(() => {
+  
+    useEffect(() => {
     (async() => {
-      const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
-      const parsed = await response.json();
-      dataset(parsed);
+        const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
+        const parsed = await response.json();
+        dataset(parsed);
     })();
-  }, []);
-
+    }, []);
   // JSON data is available in **data** constant
 
   return (
