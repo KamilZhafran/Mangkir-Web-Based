@@ -85,21 +85,19 @@ export function Home() {
 
             {/* TODO: masih belum muncul, try searching foreach loop array jsx react */}
             <div className='container-fluid'>
-                {recipes.map((recipe, index) => {
-                    if (index+1 % 3 === 0) {
+                <div className='row row-cols-3'>
+                    {recipes.map((recipe, index) => {
                         return (
-                            <div className='row'>
-                                <div className='col-md-4'>
-                                    <img src={recipe.imageURL} alt="" />
-                                    <p>{recipe.timers.reduce(function (x, y) {
-                                        return x + y;
-                                    }, 0)}</p>
-                                </div>
+                            <div className='col-md-4'>
+                                <img src={recipe.imageURL} alt="" className='img-thumbnail'/>
+                                <p>{recipe.timers.reduce(function (x, y) {
+                                    return x + y;
+                                }, 0)} Minutes</p>
                             </div>
                         );
                     }
-                }
-                )}
+                    )}
+                </div>
             </div>
 
         </div>
