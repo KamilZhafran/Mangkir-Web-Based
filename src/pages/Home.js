@@ -1,38 +1,23 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { useState, useEffect } from 'react';
-
-// function getMainData() {
-//     const [data, dataset] = useState({});
-  
-//     useEffect(() => {
-//       (async() => {
-//         const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
-//         const parsed = await response.json();
-//         dataset(parsed);
-//       })();
-//     }, []);
-  
-//     return data;
-// }
+import { Link } from 'react-router-dom';
 
 export function Home() {
-    const [data, dataset] = useState({});
+    const [data, setData] = useState([]);
   
     useEffect(() => {
     (async() => {
         const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
         const parsed = await response.json();
-        dataset(parsed);
+        setData(parsed);
     })();
     }, []);
 
-    const recipes = data;
-    console.log(recipes);
+    console.log(data);
 
     return (
         <div>
-            {/* <pre>{JSON.stringify(data[0].imageURL)}</pre> */}
         
             {/* HEAD TITLE */}
             <div className='container-fluid text-center'>
@@ -61,16 +46,16 @@ export function Home() {
             <div className='container-fluid'>
                 <div className='row text-center'>
                     <div className='col-md-4'>
-                        <h5>{recipes[0].name}</h5>
-                        <img src={recipes[0].imageURL} alt="" className='img-thumbnail'/>
+                        <h5>{data[0].name}</h5>
+                        <img src={data[0].imageURL} alt="" className='img-thumbnail'/>
                     </div>
                     <div className='col-md-4'>
-                        <h5>{recipes[1].name}</h5>
-                        <img src={recipes[1].imageURL} alt="" className='img-thumbnail'/>
+                        <h5>{data[1].name}</h5>
+                        <img src={data[1].imageURL} alt="" className='img-thumbnail'/>
                     </div>
                     <div className='col-md-4'>
-                        <h5>{recipes[4].name}</h5>
-                        <img src={recipes[4].imageURL} alt="" className='img-thumbnail'/>
+                        <h5>{data[4].name}</h5>
+                        <img src={data[4].imageURL} alt="" className='img-thumbnail'/>
                     </div>
                 </div>
             </div>
@@ -86,13 +71,24 @@ export function Home() {
             {/* TODO: masih belum muncul, try searching foreach loop array jsx react */}
             <div className='container-fluid'>
                 <div className='row row-cols-3'>
-                    {recipes.map((recipe, index) => {
+                    {data.map((recipe, index) => {
                         return (
-                            <div className='col-md-4'>
-                                <img src={recipe.imageURL} alt="" className='img-thumbnail'/>
-                                <p>{recipe.timers.reduce(function (x, y) {
-                                    return x + y;
-                                }, 0)} Minutes</p>
+                            <div className='col-md-4 center-block'>
+                                {/* href to /recipe/id to view details ??? */}
+                                <Link to='/recipe/:index' className='card' style={{
+                                    width: '18rem',
+                                    marginTop: '10px',
+                                    marginBottom: '10px'
+                                }}>
+                                    <img src={recipe.imageURL} alt="" className='card-img-top'/>
+                                    <div className='card-body'>
+                                        <p className='card-text' style={{
+                                            padding: '10px'
+                                        }}>{recipe.timers.reduce(function (x, y) {
+                                            return x + y;
+                                        }, 0)} Minutes</p>
+                                    </div>
+                                </Link>
                             </div>
                         );
                     }

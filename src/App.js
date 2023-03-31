@@ -9,32 +9,7 @@ import { InputRecipe } from './pages/InputRecipe';
 import { Favorite } from './pages/Favorite';
 import { Recipe } from './pages/Recipe';
 
-// function getMainData() {
-//   const [data, dataset] = useState({});
-
-//   useEffect(() => {
-//     (async() => {
-//       const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
-//       const parsed = await response.json();
-//       dataset(parsed);
-//     })();
-//   }, []);
-
-//   return data;
-// }
-
 function App() {
-  const [data, dataset] = useState({});
-  
-    useEffect(() => {
-    (async() => {
-        const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
-        const parsed = await response.json();
-        dataset(parsed);
-    })();
-    }, []);
-  // JSON data is available in **data** constant
-
   return (
     <>
     {/* NAVBAR SNIPPET */}
@@ -66,7 +41,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/input" element={<InputRecipe />} />
-        <Route path='/favorite' element={<Favorite/>}/>
+        <Route path='/favorite' element={<Favorite/>} />
+        <Route path='/recipe/:index' element={<Recipe/>} />
       </Routes>
     </>
   );
