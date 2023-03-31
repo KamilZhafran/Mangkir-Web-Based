@@ -21,15 +21,15 @@ export function Home() {
         
             {/* HEAD TITLE */}
             <div className='container-fluid text-center'>
-            <div className='col'>
-                <h2>Cook</h2>
-            </div>
-            <div className='col'>
-                <h2>with</h2>
-            </div>
-            <div className='col'>
-                <h1>MANGKIR</h1>
-            </div>
+                <div className='col'>
+                    <h2>Cook</h2>
+                </div>
+                <div className='col'>
+                    <h2>with</h2>
+                </div>
+                <div className='col'>
+                    <h1>MANGKIR</h1>
+                </div>
             </div>
 
             {/* BEST OF US */}
@@ -91,8 +91,7 @@ export function Home() {
                                 </Link>
                             </div>
                         );
-                    }
-                    )}
+                    })}
                 </div>
             </div>
 
