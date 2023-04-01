@@ -47,15 +47,15 @@ export function Home() {
                 <div className='row text-center'>
                     <div className='col-md-4'>
                         <h5>{data[0].name}</h5>
-                        <img src={data[0].imageURL} alt="" className='img-thumbnail'/>
+                        <img src={data[0].imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
                     </div>
                     <div className='col-md-4'>
                         <h5>{data[1].name}</h5>
-                        <img src={data[1].imageURL} alt="" className='img-thumbnail'/>
+                        <img src={data[1].imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
                     </div>
                     <div className='col-md-4'>
                         <h5>{data[4].name}</h5>
-                        <img src={data[4].imageURL} alt="" className='img-thumbnail'/>
+                        <img src={data[4].imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ export function Home() {
 
             {/* TODO: masih belum muncul, try searching foreach loop array jsx react */}
             <div className='container-fluid'>
-                <div className='row row-cols-3'>
+                <div className='row d-flex justify-content-center'>
                     {data.map((recipe, index) => {
                         return (
                             <div className='col-md-4 center-block'>
@@ -78,9 +78,11 @@ export function Home() {
                                 <Link to='/recipe/:index' className='card' style={{
                                     width: '18rem',
                                     marginTop: '10px',
-                                    marginBottom: '10px'
+                                    marginBottom: '10px',
+                                    textDecoration: 'none',
+                                    color: 'black'
                                 }}>
-                                    <img src={recipe.imageURL} alt="" className='card-img-top'/>
+                                    <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
                                     <div className='card-body'>
                                         <p className='card-text' style={{
                                             padding: '10px'
