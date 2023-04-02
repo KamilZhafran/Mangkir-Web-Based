@@ -1,8 +1,9 @@
-head{
+head {
     backdrop-filter: blur(5px);
 }
-body{
-    background-image: url('1.jpeg');
+
+body {
+    background-image: url('../res/1.jpeg');
     backdrop-filter: blur(5px);
 }
 
@@ -20,7 +21,7 @@ body{
     background-color: white;
     margin-bottom: 40px;
 }
-  
+
 .header {
     flex: 1;
     width: 100%;
@@ -31,16 +32,16 @@ body{
     justify-content: center;
     flex-direction: column;
 }
-  
+
 .header svg {
     height: 100px;
 }
-  
+
 .header p {
     text-align: center;
     color: black;
 }
-  
+
 .footer {
     background-color: rgba(0, 110, 255, 0.075);
     width: 100%;
@@ -54,7 +55,7 @@ body{
     color: black;
     border: none;
 }
-  
+
 .footer svg {
     height: 130%;
     fill: white;
@@ -64,21 +65,21 @@ body{
     cursor: pointer;
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
 }
-  
+
 .footer p {
     flex: 1;
     text-align: center;
 }
-  
+
 #file {
     display: none;
 }
 
-.form-label{
+.form-label {
     color: antiquewhite;
 }
 
-.title{
+.title {
     margin-bottom: 120px;
     margin-top: 50px;
     height: 30px;
@@ -93,13 +94,13 @@ body{
     border-radius: 150%;
 }
 
-.form-control{
+.form-control {
     justify-content: center;
     align-items: center;
     color: transparent;
 }
 
-.steps{
+.steps {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     margin-bottom: 60px;
@@ -107,7 +108,7 @@ body{
     margin-right: 50px;
 }
 
-.ingredients{
+.ingredients {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     margin-bottom: 30px;
@@ -115,8 +116,6 @@ body{
     margin-right: 50px;
 }
 
-h1{
+h1 {
     margin-top: 40px;
 }
-
-

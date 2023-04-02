@@ -40,9 +40,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/input" element={<InputRecipe />} />
         <Route path='/favorite' element={<Favorite/>} />
         <Route path='/recipe' element={<Recipe/>} />
+        <Route path='/input' element={<InputRecipe/>} />
       </Routes>
     </>
   );
