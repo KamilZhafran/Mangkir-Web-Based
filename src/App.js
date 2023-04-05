@@ -12,31 +12,31 @@ import { Recipe } from './pages/Recipe';
 function App() {
   return (
     <>
-    {/* NAVBAR SNIPPET */}
-    <div>
-          <nav className='navbar navbar-expand-lg navbar-light shadow-5-strong'>
-            <div className='container-fluid'>
-              <Link to="/" className='navbar-brand'>Mangkir</Link>
-              <div className='collapse navbar-collapse'>
-                <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-                  <form action="search" className='d-flex' role={'searchbox'}>
-                    <input type="search" className='form-control me-2' placeholder='Input Recipe...' aria-label='Search'/>
-                    <button className='btn btn-success' type='submit'>Search</button>
-                  </form>
-                  <li className='nav-item'>
-                    <Link to='/favorite' className='nav-link'>Favorites</Link>
-                  </li>
-                  <li className='nav-item'>
-                    <Link to='/input' className='nav-link'>Upload</Link>
-                  </li>
-                  <li className='nav-item'>
-                    <a href="/#" className='nav-link'>Profile</a>
-                  </li>
-                </ul>
-              </div>
+      {/* NAVBAR SNIPPET */}
+      <div>
+        <nav className='navbar navbar-expand-lg navbar-light shadow-5-strong'>
+          <div className='container-fluid'>
+            <Link to="/" className='navbar-brand'>Mangkir</Link>
+            <div className='collapse navbar-collapse'>
+              <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
+                <form action="search" className='d-flex' role={'searchbox'}>
+                  <input type="search" className='form-control me-2' placeholder='Input Recipe...' aria-label='Search'/>
+                  <button className='btn btn-success' type='submit'>Search</button>
+                </form>
+                <li className='nav-item'>
+                  <Link to='/favorite' className='nav-link'>Favorites</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/input' className='nav-link'>Upload</Link>
+                </li>
+                <li className='nav-item'>
+                  <a href="/#" className='nav-link'>Profile</a>
+                </li>
+              </ul>
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
+      </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
