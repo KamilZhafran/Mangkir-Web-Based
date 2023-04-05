@@ -3,7 +3,7 @@ head {
 }
 
 body {
-    background-image: url('../res/1.jpeg');
+    background-image: url('../../public/res/InputRecipe/1.jpeg');
     backdrop-filter: blur(5px);
 }
 
