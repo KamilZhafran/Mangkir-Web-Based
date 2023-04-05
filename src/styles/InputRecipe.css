@@ -7,7 +7,7 @@ body {
     backdrop-filter: blur(5px);
 }
 
-.container {
+.in-recipe-container {
     height: 200px;
     width: 200px;
     border-radius: 10px;
@@ -19,6 +19,7 @@ body {
     padding: 10px;
     gap: 5px;
     background-color: white;
+    margin-left: 830px;
     margin-bottom: 40px;
 }
 
@@ -79,7 +80,7 @@ body {
     color: antiquewhite;
 }
 
-.title {
+.in-recipe-title {
     margin-bottom: 120px;
     margin-top: 50px;
     height: 30px;
@@ -100,15 +101,15 @@ body {
     color: transparent;
 }
 
-.steps {
+.in-recipe-steps {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 60px;
+    margin-bottom: 5%;
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.ingredients {
+.in-recipe-ingredients {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     margin-bottom: 30px;
@@ -117,5 +118,5 @@ body {
 }
 
 h1 {
-    margin-top: 40px;
+    margin-top: 20px;
 }
