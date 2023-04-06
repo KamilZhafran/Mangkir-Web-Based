@@ -34,11 +34,11 @@ head {
     flex-direction: column;
 }
 
-.header svg {
+.headerSvg {
     height: 100px;
 }
 
-.header p {
+.headerP {
     text-align: center;
     color: black;
 }
@@ -57,7 +57,7 @@ head {
     border: none;
 }
 
-.footer svg {
+.footerSvg {
     height: 130%;
     fill: white;
     background-color: rgba(70, 66, 66, 0.103);
@@ -67,7 +67,7 @@ head {
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
 }
 
-.footer p {
+.footerP {
     flex: 1;
     text-align: center;
 }
@@ -98,7 +98,7 @@ head {
 .formControl {
     justify-content: center;
     align-items: center;
-    color: transparent;
+    /* color: transparent; */
 }
 
 .inSecipeSteps {
