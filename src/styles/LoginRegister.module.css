@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 
-body {
+.bodyLogin {
     display: flex;
     background-color: grey;
     justify-content: center;
