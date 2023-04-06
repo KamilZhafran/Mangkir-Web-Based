@@ -13,11 +13,11 @@ export class InputRecipe extends React.Component {
     render() {
         return (
             <div>
-                <div className={styles.in-recipe-title}>
-                    <label for="nameTitle" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="nameTitle"/>
+                <div className={styles.inRecipeTitle}>
+                    <label for="nameTitle" className={styles.formLabel}>Title</label>
+                    <input type="text" className={styles.formControl} id="nameTitle"/>
                 </div>   
-                <div className={styles.in-recipe-container}> 
+                <div className={styles.inRecipeContainer}> 
                     <div className="header"> 
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
                         <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> <p>Upload Food Photo!</p>
@@ -29,15 +29,15 @@ export class InputRecipe extends React.Component {
                     </label> 
                     <input id="file" type="file"/> 
                 </div>
-                <div className={styles.in-recipe-ingredients}>
-                    <label for="ingredientsList" className="form-label">Ingredients</label>
-                    <textarea className="form-control" id="ingredientsList" rows="5"></textarea>
+                <div className={styles.inRecipeIngredients}>
+                    <label for="ingredientsList" className={styles.formLabel}>Ingredients</label>
+                    <textarea className={styles.formControl} id="ingredientsList" rows="5"></textarea>
                 </div><br/>
-                <div className={styles.in-recipe-steps}>
-                    <label for="stepsList" className="form-label">Steps</label>
-                    <textarea className="form-control" id="stepsList" rows="5"></textarea>
+                <div className={styles.inRecipeSteps}>
+                    <label for="stepsList" className={styles.formLabel}>Steps</label>
+                    <textarea className={styles.formControl} id="stepsList" rows="5"></textarea>
                 </div>
-                <div className={styles.in-recipe-container}> 
+                <div className={styles.inRecipeContainer}> 
                     <div className="header"> 
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
                         <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> <p>Upload Food Video!</p>
