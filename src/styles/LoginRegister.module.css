@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
-* {
-    box-sizing: border-box;
-}
 
 .bodyLogin {
     display: flex;
@@ -12,6 +9,7 @@
     font-family: "Poppins", sans-serif;
     overflow: hidden;
     height: 100vh;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -137,7 +135,7 @@ button.ghost:hover i.login {
     opacity: 1;
 }
 
-form {
+.formLogin {
     background-color: rgb(198, 188, 175);
     display: flex;
     align-items: center;

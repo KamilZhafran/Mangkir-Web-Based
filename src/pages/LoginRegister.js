@@ -40,7 +40,7 @@ export class LoginRegister extends React.Component {
                     </div>
 
                     <div className={`${styles.formContainer} ${styles.loginContainer}`}>
-                        <form action="#">
+                        <form action="#" className={styles.formLogin}>
                             <h1>Login here.</h1>
                             <input type="email" placeholder="Email"/>
                             <input type="password" placeholder="Password"/>

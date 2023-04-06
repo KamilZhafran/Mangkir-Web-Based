@@ -12,7 +12,7 @@ export class InputRecipe extends React.Component {
     //       ubah juga nama class nya di file css yang bersangkutan
     render() {
         return (
-            <div>
+            <div className={styles.bodyRecipe}>
                 <div className={styles.inRecipeTitle}>
                     <label for="nameTitle" className={styles.formLabel}>Title</label>
                     <input type="text" className={styles.formControl} id="nameTitle"/>
