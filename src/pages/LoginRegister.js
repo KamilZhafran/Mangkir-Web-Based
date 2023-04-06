@@ -1,4 +1,4 @@
-import '../styles/LoginRegister.module.css';
+import styles from '../styles/LoginRegister.module.css';
 import React, { useRef } from 'react';
 
 export class LoginRegister extends React.Component {
@@ -26,9 +26,9 @@ export class LoginRegister extends React.Component {
         }
 
         return (
-            <div className={`container${isContainerActive ? " right-panel-active":""}`} id="container">
+            <div className={`${styles.container} ${isContainerActive?` ${styles.right-panel-active}`:''}`} id="container">
     
-                <div className="form-container register-container">
+                <div className={`${styles.form-container} ${styles.register-container}`}>
                     <form action="#">
                         <h1>Register here.</h1>
                         <input type="text" placeholder="Name"/>
@@ -36,50 +36,50 @@ export class LoginRegister extends React.Component {
                         <input type="password" placeholder="Password"/>
                         <button>Register</button>
                         <span>or use your account</span>
-                        <div className="social-container">
-                        <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
-                        <a href="#" className="social"><i className="lni lni-google"></i></a>
+                        <div className={styles.social-container}>
+                        <a href="#" className={styles.social}><i className={`${styles.lni} ${styles.lni-facebook-fill}`}></i></a>
+                        <a href="#" className={styles.social}><i className={`${styles.lni} ${styles.lni-google}`}></i></a>
                         </div>
                     </form>
                 </div>
     
-                <div className="form-container login-container">
+                <div className={`${styles.form-container} ${styles.login-container}`}>
                     <form action="#">
                         <h1>Login here.</h1>
                         <input type="email" placeholder="Email"/>
                         <input type="password" placeholder="Password"/>
-                        <div className="content">
-                        <div className="checkbox">
+                        <div className={styles.content}>
+                        <div className={styles.checkbox}>
                             <input type="checkbox" name="checkbox" id="checkbox"/>
                             <label>Remember me</label>
                         </div>
-                        <div className="pass-link">
+                        <div className={styles.pass-link}>
                             <a href="#">Forgot password?</a>
                         </div>
                         </div>
                         <button>Login</button>
                         <span>or use your account</span>
-                        <div className="social-container">
-                        <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
-                        <a href="#" className="social"><i className="lni lni-google"></i></a>
+                        <div className={styles.social-container}>
+                        <a href="#" className={styles.social}><i className={`${styles.lni} ${styles.lni-facebook-fill}`}></i></a>
+                        <a href="#" className={styles.social}><i className={`${styles.lni} ${styles.lni-google}`}></i></a>
                         </div>
                     </form>
                 </div>
     
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-left">
-                        <h1 className="title">Hello <br/> peeps!</h1>
+                <div className={styles.overlay-container}>
+                    <div className={styles.overlay}>
+                        <div className={`${styles.overlay-panel} ${styles.overlay-left}`}>
+                        <h1 className={styles.title}>Hello <br/> peeps!</h1>
                         <p>if you already have an account, login here and start your mangkir journey</p>
-                        <button className="ghost" id="login" onClick={loginButton}>Login
-                            <i className="lni lni-arrow-left login"></i>
+                        <button className={styles.ghost} id="login" onClick={loginButton}>Login
+                            <i className={`${styles.lni} ${styles.lni-arrow-left} ${styles.login}`}></i>
                         </button>
                         </div>
-                        <div className="overlay-panel overlay-right">
-                        <h1 className="title">Start your <br/> mangkir now!</h1>
+                        <div className={`${styles.overlay-panel} ${styles.overlay-right}`}>
+                        <h1 className={styles.title}>Start your <br/> mangkir now!</h1>
                         <p>if you don't have an account yet, join us and start your mangkir journey.</p>
-                        <button className="ghost" id="register" onClick={registerButton}>Register
-                            <i className="lni lni-arrow-right register"></i>
+                        <button className={styles.ghost} id="register" onClick={registerButton}>Register
+                            <i className={`${styles.lni} ${styles.lni-arrow-right} ${styles.register}`}></i>
                         </button>
                         </div>
                     </div>
