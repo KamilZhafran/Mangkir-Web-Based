@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../styles/InputRecipe.css';
+import styles from '../styles/InputRecipe.module.css';
 import React from 'react';
 
 export class InputRecipe extends React.Component {
@@ -13,7 +13,7 @@ export class InputRecipe extends React.Component {
     render() {
         return (
             <div>
-                <div className="in-recipe-title">
+                <div className={styles.in-recipe-title}>
                     <label for="nameTitle" className="form-label">Title</label>
                     <input type="text" className="form-control" id="nameTitle"/>
                 </div>   

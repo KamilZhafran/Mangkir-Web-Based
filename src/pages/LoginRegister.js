@@ -1,4 +1,4 @@
-import '../styles/LoginRegister.css';
+import '../styles/LoginRegister.module.css';
 import React, { useRef } from 'react';
 
 export class LoginRegister extends React.Component {
