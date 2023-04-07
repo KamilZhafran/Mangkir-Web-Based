@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
-
 .bodyLogin {
     display: flex;
     background-color: grey;
@@ -284,4 +283,3 @@ input {
 .container.rightPanelActive .overlayRight {
     transform: translateX(20%);
 }
-

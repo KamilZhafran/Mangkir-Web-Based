@@ -3,13 +3,28 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import ReactPlayer from 'react-player';
 import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating';
+import ReactStars from 'react-rating-stars-component';
 
 export class Recipe extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            data: []
+            data: [],
+            stars: {
+                size: 30,
+                count: 5,
+                color: "black",
+                activeColor: "yellow",
+                a11y: true,
+                onChange: newValue => {
+                    this.state.dataRate = newValue;
+                }
+            },
+            dataRate: 0,
+            sum: 0,
+            counter: 0,
+            dataRateAvg: 0.0
         };
     }
 
@@ -23,9 +38,15 @@ export class Recipe extends React.Component {
         const id = parseInt(window.location.pathname.slice(-1));
         const { data } = this.state;
 
-        console.log(id);
-
         const currData = data[id]
+
+        const avgRating = () => {
+            this.state.sum += this.state.dataRate;
+            this.state.counter++;
+
+            this.state.dataRateAvg = this.state.sum/this.state.counter;
+            console.log(this.state.dataRateAvg);
+        }
 
         return (
             <div>
@@ -79,15 +100,13 @@ export class Recipe extends React.Component {
                             width: '100px'
                         }} />
                     </div>
-                    <div className='col-md-9'>
-                        <p>name holder</p>
-                        <Rating />
+                    <div className='col-md-6'>
+                        <p>name_holder</p>
+                        <ReactStars {...this.state.stars}/>
+                        <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control'></textarea>
+                        <button className='btn btn-success' onClick={avgRating}>Submit</button>
                     </div>
-                </div>
-                <div className='row' style={{
-                    padding: '40px'
-                }}>
-                    <textarea name="rating" id="recipe-rating" cols="30" rows="10" className='form-control'></textarea>
+                    <div className='col-md-3'></div>
                 </div>
     
             </div>
