@@ -51,7 +51,7 @@ export class Favorite extends React.Component {
                         {data.map((recipe, index) => {
                             return (
                                 <div className='col-md-4'>
-                                    <Link to='/recipe/:index' className='card' style={{
+                                    <Link to={`/recipe/${index}`} className='card' style={{
                                         maxWidth: '20rem',
                                         marginTop: '10px',
                                         marginBottom: '10px',

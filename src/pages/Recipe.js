@@ -20,23 +20,31 @@ export class Recipe extends React.Component {
     }
 
     render() {
+        const id = parseInt(window.location.pathname.slice(-1));
         const { data } = this.state;
 
-        console.log(data);
+        console.log(id);
 
-        const example = data[0];
+        const currData = data[id]
 
         return (
             <div>
                 
                 {/* Video Holder */}
                 <div className='container-fluid text-center'>
-                    <h2 style={{
-                        fontStyle: 'italic'
-                    }}>Recipe Title</h2>
                     <div className='col d-flex justify-content-center'>
                         <ReactPlayer url='https://www.youtube.com/watch?v=NcXzpCqKdUA&ab_channel=J.KenjiL%C3%B3pez-Alt'/>
                     </div>
+                </div>
+
+                <div className='row text-center'>
+                    <h2>{currData?.name}</h2>
+                </div>
+
+                <div className='row text-center'>
+                    <p>{currData?.timers.reduce(function (x, y) {
+                            return x + y;
+                        }, 0)} minute preparation</p>
                 </div>
     
                 {/* Recipe Holder */}
@@ -44,7 +52,7 @@ export class Recipe extends React.Component {
                     <div className='col-md-6'>
                         <h5>Step-by-step:</h5>
                         <ul>
-                            {example?.steps.map((res) => {
+                            {currData?.steps.map((res) => {
                                 return (
                                     <li>{res}</li>
                                 );
@@ -55,7 +63,7 @@ export class Recipe extends React.Component {
                     <div className='col-md-6'>
                         <h5>Ingredients:</h5>
                         <ul>
-                            {example?.ingredients.map((res) => {
+                            {currData?.ingredients.map((res) => {
                                 return (
                                     <li>{res.quantity} {res.name}</li>
                                 );
@@ -65,42 +73,24 @@ export class Recipe extends React.Component {
                 </div>
     
                 {/* Rating */}
-                <div className='d-flex justify-content-center'>
-                    <Rating />
-                </div>
-    
                 <div className='row'>
-                    <div className='col-md-2 text-end'>
-                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='img-thumbnail' style={{
+                    <div className='col-md-3 text-end'>
+                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='rounded-circle' style={{
                             width: '100px'
                         }} />
                     </div>
-                    <div className='col-md-10' style={{
-                        paddingRight: '40px'
-                    }}>
-                        <textarea name="rating" id="recipe-rating" cols="30" rows="10" className='form-control'></textarea>
+                    <div className='col-md-9'>
+                        <p>name holder</p>
+                        <Rating />
                     </div>
+                </div>
+                <div className='row' style={{
+                    padding: '40px'
+                }}>
+                    <textarea name="rating" id="recipe-rating" cols="30" rows="10" className='form-control'></textarea>
                 </div>
     
             </div>
         );
     }
 }
-
-// export function Recipe() {
-//     const [data, setData] = useState([]);
-  
-//     useEffect(() => {
-//     (async() => {
-//         const response = await fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json');
-//         const parsed = await response.json();
-//         setData(parsed);
-//     })();
-//     }, []);
-
-//     console.log(data);
-
-//     const example = data[0];
-
-    
-// }

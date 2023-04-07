@@ -82,7 +82,7 @@ export class Home extends React.Component {
                             return (
                                 <div className='col-md-4 center-block'>
                                     {/* href to /recipe/id to view details ??? */}
-                                    <Link to='/recipe/:index' className='card' style={{
+                                    <Link to={`/recipe/${index}`} className='card' style={{
                                         width: '18rem',
                                         marginTop: '10px',
                                         marginBottom: '10px',
