@@ -1,5 +1,5 @@
 import styles from '../styles/LoginRegister.module.css';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 export class LoginRegister extends React.Component {
     constructor(props) {
@@ -15,19 +15,27 @@ export class LoginRegister extends React.Component {
     //       ubah juga nama class nya di file css yang bersangkutan
     render() {
         // TODO: masih gabisa nih pencet button add/remove class
-        let isContainerActive = this.state;
+        let check = false;
 
         const registerButton = () => {
-            isContainerActive = false;
+            this.setState(prevState => ({
+                isContainerActive: !prevState.isContainerActive
+            }));
+            console.log("register button clicked");
         }
 
         const loginButton = () => {
-            isContainerActive = true;
+            this.setState(prevState => ({
+                isContainerActive: !prevState.isContainerActive
+            }));
+            console.log("login button clicked");
         }
+
+        console.log(this.state.isContainerActive);
 
         return (
             <div className={styles.bodyLogin}>
-                <div className={`${styles.container} ${isContainerActive?` ${styles.rightPanelActive}`:''}`} id="container">
+                <div className={`${styles.container} ${this.state.isContainerActive?` ${styles.rightPanelActive}`:''}`} id="container">
     
                     <div className={`${styles.formContainer} ${styles.registerContainer}`}>
                         <form action="#">

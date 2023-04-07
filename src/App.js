@@ -31,7 +31,7 @@ function App() {
                   <Link to='/input' className='nav-link'>Upload</Link>
                 </li>
                 <li className='nav-item'>
-                  <a href="/#" className='nav-link'>Profile</a>
+                  <Link to='/login-register' className='nav-link'>Profile</Link>
                 </li>
               </ul>
             </div>
