@@ -28,22 +28,6 @@
     color: #61dafb;
 }
 
-.img-thumb-crop {
-    object-fit: cover;
-    object-position: center;
-    width: 300px;
-    height: 200px;
-    margin-bottom: 1rem;
-}
-
-.img-thumb-crop-big {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    max-height: 600px;
-    margin-bottom: 1rem;
-}
-
 .card {
     margin: 0 auto;
     float: none;
@@ -57,4 +41,22 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+body {
+    background-image: url('../public/res/global/image/background1.png');
+    backdrop-filter: blur(5px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 50px #000;
+}
+
+* {
+    font-family: 'Cardo', sans-serif;
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: local('Cardo'), url('../public/res/global/font/Cardo-Regular.ttf') format('truetype');
 }

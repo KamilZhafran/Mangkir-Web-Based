@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,18 +31,18 @@ export class Home extends React.Component {
                 {/* HEAD TITLE */}
                 <div className='container-fluid text-center'>
                     <div className='col'>
-                        <h2>Cook</h2>
+                        <h2 style={{color: 'white'}}>Cook</h2>
                     </div>
                     <div className='col'>
-                        <h2>with</h2>
+                        <h2 style={{color: 'white'}}>with</h2>
                     </div>
                     <div className='col'>
-                        <h1>MANGKIR</h1>
+                        <h1 style={{color: 'white'}}>MANGKIR</h1>
                     </div>
                 </div>
 
                 {/* BEST OF US */}
-                <div className='container rounded text-center' style={{backgroundColor: 'gray'}}>
+                <div className={`container text-center ${styles.bannerImgRounded}`}>
                 <h3 style={{
                     color: 'white',
                     fontStyle: 'italic',
@@ -53,16 +54,16 @@ export class Home extends React.Component {
                 <div className='container-fluid'>
                     <div className='row text-center'>
                         <div className='col-md-4'>
-                            <h5>{data[0]?.name}</h5>
-                            <img src={data[0]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: 'white'}}>{data[0]?.name}</h5>
+                            <img src={data[0]?.imageURL} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[1]?.name}</h5>
-                            <img src={data[1]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: 'white'}}>{data[1]?.name}</h5>
+                            <img src={data[1]?.imageURL} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[4]?.name}</h5>
-                            <img src={data[4]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: 'white'}}>{data[4]?.name}</h5>
+                            <img src={data[4]?.imageURL} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@ export class Home extends React.Component {
                 {/* OTHERS FOR YOU */}
                 <div className='container text-center'>
                     <h3 style={{
-                        color: 'black',
+                        color: 'white',
                         padding: '20px'
                     }}>Other for You</h3>
                 </div>
@@ -84,16 +85,12 @@ export class Home extends React.Component {
                                     {/* href to /recipe/id to view details ??? */}
                                     <Link to={`/recipe/${index}`} className='card' style={{
                                         width: '18rem',
-                                        marginTop: '10px',
-                                        marginBottom: '10px',
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
+                                        <img src={recipe.imageURL} alt="" className={`card-img-top ${styles.imgThumbCrop}`}/>
                                         <div className='card-body'>
-                                            <p className='card-text' style={{
-                                                padding: '10px'
-                                            }}>{recipe.timers.reduce(function (x, y) {
+                                            <p className='card-text'>{recipe.timers.reduce(function (x, y) {
                                                 return x + y;
                                             }, 0)} Minutes</p>
                                         </div>
@@ -101,6 +98,28 @@ export class Home extends React.Component {
                                 </div>
                             );
                         })}
+                    </div>
+                </div>
+
+                {/* Extras (Input dan Leftover) */}
+                <div className='row text-center' style={{
+                    marginTop: '50px',
+                }}>
+                    <div className='col-md-6'>
+                        <h2 style={{color: 'white'}}>Make Your Own Recipe</h2>
+                        <div className={`container text-center ${styles.bannerImgRoundedSmall}`}>
+                            <Link to='/input'>
+                                <h1 style={{color: 'white'}}>Click here</h1>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className='col-md-6'>
+                        <h2 style={{color: 'white'}}>Leftovers</h2>
+                        <div className={`container text-center ${styles.bannerImgRoundedSmall}`}>
+                            <Link to='/#'>
+                                <h1 style={{color: 'white'}}>Click here</h1>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
