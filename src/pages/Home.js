@@ -8,16 +8,30 @@ export class Home extends React.Component {
         super(props);
 
         this.state = {
-            data: []
+            data: [],
+            error: null,
+            isLoaded: false
         };
     }
 
     componentDidMount() {
         this.setState({ isLoading: true });
 
-        fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json')
+        fetch('http://127.0.0.1:8000/api/recipes')
             .then(response => response.json())
-            .then(data => this.setState({ data: data }));
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    data: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
+            // .then(data => this.setState({ data: data }));
     }
 
     render() {
@@ -53,16 +67,16 @@ export class Home extends React.Component {
                 <div className='container-fluid'>
                     <div className='row text-center'>
                         <div className='col-md-4'>
-                            <h5>{data[0]?.name}</h5>
-                            <img src={data[0]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5>{data[0]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[0]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[1]?.name}</h5>
-                            <img src={data[1]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5>{data[1]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[1]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[4]?.name}</h5>
-                            <img src={data[4]?.imageURL} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5>{data[2]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[2]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                     </div>
                 </div>
@@ -81,7 +95,6 @@ export class Home extends React.Component {
                         {data?.map((recipe, index) => {
                             return (
                                 <div className='col-md-4 center-block'>
-                                    {/* href to /recipe/id to view details ??? */}
                                     <Link to={`/recipe/${index}`} className='card' style={{
                                         width: '18rem',
                                         marginTop: '10px',
@@ -89,13 +102,11 @@ export class Home extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
+                                        <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt={recipe.name} className='card-img-top img-thumb-crop'/>
                                         <div className='card-body'>
                                             <p className='card-text' style={{
                                                 padding: '10px'
-                                            }}>{recipe.timers.reduce(function (x, y) {
-                                                return x + y;
-                                            }, 0)} Minutes</p>
+                                            }}>{recipe.durasi_menit} minutes</p>
                                         </div>
                                     </Link>
                                 </div>
