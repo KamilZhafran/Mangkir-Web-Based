@@ -8,7 +8,8 @@ import { Home } from './pages/Home';
 import { InputRecipe } from './pages/InputRecipe';
 import { Favorite } from './pages/Favorite';
 import { Recipe } from './pages/Recipe';
-import { LoginRegister } from './pages/LoginRegister';
+import { Register } from './pages/Register';
+import { Login } from './pages/Login';
 
 function App() {
   return (
@@ -75,11 +76,12 @@ function App() {
       </div>
 
       <Routes>
-        <Route path='/login-register' element={<LoginRegister/>} />
+        <Route path='/register' element={<Register/>} />
         <Route path="/" element={<Home />} />
         <Route path='/favorite' element={<Favorite/>} />
         <Route path="/recipe/:id" element={<Recipe/>} />
         <Route path='/input' element={<InputRecipe/>} />
+        <Route path='/login' element={<Login/>}></Route>
       </Routes>
     </>
   );
