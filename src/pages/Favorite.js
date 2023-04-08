@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import styles from '../styles/Favorite.module.css';
 
 export class Favorite extends React.Component {
     constructor(props) {
@@ -32,7 +32,8 @@ export class Favorite extends React.Component {
                 <div className='row'>
                     <div className='col-md-6 text-end'>
                         <h1 style={{
-                            fontStyle: 'italic'
+                            fontStyle: 'italic',
+                            color: 'white'
                         }}>YOUR</h1>
                     </div>
                 </div>
@@ -40,7 +41,8 @@ export class Favorite extends React.Component {
                     <div className='col-md-6'></div>
                     <div className='col-md-6'>
                         <h1 style={{
-                            fontStyle: 'italic'
+                            fontStyle: 'italic',
+                            color: 'white'
                         }}>Favorites</h1>
                     </div>
                 </div>
@@ -58,18 +60,24 @@ export class Favorite extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
-                                        <div className='d-flex'>
-                                            <p className='col-md-6' style={{
-                                                padding: '5px'
-                                            }}>{recipe.timers.reduce(function (x, y) {
-                                                return x + y;
-                                            }, 0)} Minutes</p>
-                                            <img src="/res/Favorite/delete.svg" alt="" className='col-md-6 d-flex justify-content-end' style={{
-                                                color: 'red',
-                                                width: '40px',
-                                                height: '40px',
-                                            }}/>
+                                        <img src={recipe.imageURL} alt="" className={`card-img-top ${styles.imgThumbCrop}`}/>
+                                        <div className='d-flex' style={{
+                                            paddingTop: '10px',
+                                            paddingLeft: '10px',
+                                            paddingRight: '10px',
+                                        }}>
+                                            <div className='col-md-6'>
+                                                <p>{recipe.timers.reduce(function (x, y) {
+                                                    return x + y;
+                                                }, 0)} Minutes</p>
+                                            </div>
+                                            <div className='col-md-6 text-end'>
+                                                <img src="/res/Favorite/delete.svg" alt="" style={{
+                                                    color: 'red',
+                                                    width: '40px',
+                                                    height: '40px',
+                                                }}/>
+                                            </div>
                                         </div>
                                     </Link>
                                 </div>

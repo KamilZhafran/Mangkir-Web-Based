@@ -68,15 +68,15 @@ export class Home extends React.Component {
                 <div className='container-fluid'>
                     <div className='row text-center'>
                         <div className='col-md-4'>
-                            <h5>{data[0]?.judul}</h5>
+                            <h5 style={{color: "white"}}>{data[0]?.judul}</h5>
                             <img src={`http://127.0.0.1:8000/foto/${data[0]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[1]?.judul}</h5>
+                            <h5 style={{color: "white"}}>{data[1]?.judul}</h5>
                             <img src={`http://127.0.0.1:8000/foto/${data[1]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[2]?.judul}</h5>
+                            <h5 style={{color: "white"}}>{data[2]?.judul}</h5>
                             <img src={`http://127.0.0.1:8000/foto/${data[2]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
                         </div>
                     </div>

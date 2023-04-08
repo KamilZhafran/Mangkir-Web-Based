@@ -28,8 +28,11 @@ export class Profile extends React.Component {
         return (
             <div className="text-center">
                 <h1 style={{color: "white"}}>Profile</h1>
+                <h3 style={{color: "white"}}>Name</h3>
                 <p style={{color: "white"}}>{localStorage.getItem('loggedInEmail')}</p>
-                <button onClick={logout}>LOGOUT</button>
+                <h3 style={{color: "white"}}>Email</h3>
+                <p style={{color: "white"}}>{localStorage.getItem('loggedInEmail')}</p>
+                <button className="btn btn-danger btn-lg" onClick={logout}>LOGOUT</button>
             </div>
         );
     }

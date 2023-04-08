@@ -89,7 +89,7 @@ export class Recipe extends React.Component {
 
         const isLoggedin = localStorage.getItem('access_token') !== "null";
 
-        console.log(isLoggedin);
+        console.log(author);
 
         return (
             <div>
@@ -137,19 +137,23 @@ export class Recipe extends React.Component {
                 {/* Rating */}
                 {isLoggedin?
                 <div className='row'>
-                    <div className='col-md-3'></div>
-                    <div className='col-md-3 text-end'>
-                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='rounded-circle' style={{
-                            width: '100px'
-                        }} />
+                    <div className='col-md-2'></div>
+                    <div className={`row col-md-8 ${styles.roundedCard}`}>
+                        <div className='col-md-2 text-center'>
+                            <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='rounded-circle' style={{
+                                width: '100px'
+                            }} />
+                        </div>
+                        <div className='col-md-10'>
+                            <h3>{author?.name}</h3>
+                            <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
+                            <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange} style={{
+                                marginBottom: '10px'
+                            }}></textarea>
+                            <button className='btn btn-success' onClick={avgRating}>Submit</button>
+                        </div>
                     </div>
-                    <div className='col-md-3'>
-                        <p>{author?.name}</p>
-                        <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
-                        <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange}></textarea>
-                        <button className='btn btn-success' onClick={avgRating}>Submit</button>
-                    </div>
-                    <div className='col-md-3'></div>
+                    <div className='col-md-2'></div>
                 </div>
                 :
                 <div className='row'>
