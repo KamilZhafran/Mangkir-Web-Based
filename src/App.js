@@ -9,8 +9,10 @@ import { InputRecipe } from './pages/InputRecipe';
 import { Favorite } from './pages/Favorite';
 import { Recipe } from './pages/Recipe';
 import { LoginRegister } from './pages/LoginRegister';
+import { Profile } from './pages/Profile';
 
 function App() {
+  console.log(`${localStorage.getItem('access_token')} ${localStorage.getItem('loggedInEmail')}`);
   return (
     <>
       {/* NAVBAR SNIPPET */}
@@ -59,7 +61,7 @@ function App() {
                 </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/login-register' className='nav-link' style={{
+                  <Link to='/profile' className='nav-link' style={{
                   color: 'white'
                 }}>
                   <img src="/res/navbar/profile.svg" alt="" style={{
@@ -80,6 +82,7 @@ function App() {
         <Route path='/favorite' element={<Favorite/>} />
         <Route path="/recipe/:id" element={<Recipe/>} />
         <Route path='/input' element={<InputRecipe/>} />
+        <Route path='/profile' element={<Profile/>} />
       </Routes>
     </>
   );

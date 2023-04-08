@@ -59,12 +59,17 @@ export class Favorite extends React.Component {
                                         color: 'black'
                                     }}>
                                         <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
-                                        <div className='card-body'>
-                                            <p className='card-text' style={{
+                                        <div className='d-flex'>
+                                            <p className='col-md-6' style={{
                                                 padding: '5px'
                                             }}>{recipe.timers.reduce(function (x, y) {
                                                 return x + y;
                                             }, 0)} Minutes</p>
+                                            <img src="/res/Favorite/delete.svg" alt="" className='col-md-6 d-flex justify-content-end' style={{
+                                                color: 'red',
+                                                width: '40px',
+                                                height: '40px',
+                                            }}/>
                                         </div>
                                     </Link>
                                 </div>
