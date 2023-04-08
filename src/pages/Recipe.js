@@ -40,6 +40,22 @@ export class Recipe extends React.Component {
         })
             .then(response => response.json())
             .then(data => this.setState({ data: data }));
+
+        const accessToken = localStorage.getItem('access_token');
+        console.log(JSON.stringify(accessToken));
+        fetch('/api/user', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // the user data
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
     
     render() {
@@ -59,7 +75,7 @@ export class Recipe extends React.Component {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    email: author?.email, // ini masih salah harusnya email yang lagi login
+                    email: localStorage.getItem('loggedInEmail'),
                     rating: this.state.dataRate,
                     deskripsi: this.state.desc,
                 })

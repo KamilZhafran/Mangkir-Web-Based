@@ -64,7 +64,8 @@ export class LoginRegister extends React.Component {
           });
     
           const responseData = await response.json();
-          console.log(responseData);
+          localStorage.setItem('access_token', responseData.token);
+          localStorage.setItem('loggedInEmail', responseData.email);
           if (responseData.token){
             window.location.href = '/';
           }else{
