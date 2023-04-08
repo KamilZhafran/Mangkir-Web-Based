@@ -10,6 +10,8 @@ import { Favorite } from './pages/Favorite';
 import { Recipe } from './pages/Recipe';
 import { LoginRegister } from './pages/LoginRegister';
 import { Profile } from './pages/Profile';
+import { Register } from './pages/Register';
+import { Login } from './pages/Login';
 
 function App() {
   console.log(`${localStorage.getItem('access_token')} ${localStorage.getItem('loggedInEmail')}`);
@@ -77,12 +79,13 @@ function App() {
       </div>
 
       <Routes>
-        <Route path='/login-register' element={<LoginRegister/>} />
+        <Route path='/register' element={<Register/>} />
         <Route path="/" element={<Home />} />
         <Route path='/favorite' element={<Favorite/>} />
         <Route path="/recipe/:id" element={<Recipe/>} />
         <Route path='/input' element={<InputRecipe/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/login' element={<Login/>}></Route>
       </Routes>
     </>
   );

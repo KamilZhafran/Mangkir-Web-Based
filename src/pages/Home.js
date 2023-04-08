@@ -62,7 +62,7 @@ export class Home extends React.Component {
                     fontStyle: 'italic',
                     padding: '20px'
                 }}>Best of Us</h3>
-                </div>
+                </div><br/>
 
                 {/* BEST OF US CARDS */}
                 <div className='container-fluid'>
@@ -135,6 +135,7 @@ export class Home extends React.Component {
                         </div>
                     </div>
                 </div>
+                <br/>
 
         </div>
         );
