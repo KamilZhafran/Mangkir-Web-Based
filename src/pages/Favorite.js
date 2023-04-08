@@ -9,22 +9,41 @@ export class Favorite extends React.Component {
         super(props);
 
         this.state = {
-            data: []
+            data: [],
+            error: null,
+            isLoaded: false,
         };
     }
 
     componentDidMount() {
         this.setState({ isLoading: true });
-
-        fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json')
+        const loggedInEmail = localStorage.getItem('loggedInEmail');
+        fetch(`http://127.0.0.1:8000/api/recipes/favorite?email=${loggedInEmail}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
             .then(response => response.json())
-            .then(data => this.setState({ data: data }));
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    data: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
+            // .then(data => this.setState({ data: data }));
     }
 
     render() {
         const { data } = this.state;
 
-        console.log(data);
+        // console.log(data);
 
         return (
             <div>
@@ -58,13 +77,11 @@ export class Favorite extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={recipe.imageURL} alt="" className='card-img-top img-thumb-crop'/>
+                                        <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
                                         <div className='card-body'>
                                             <p className='card-text' style={{
                                                 padding: '5px'
-                                            }}>{recipe.timers.reduce(function (x, y) {
-                                                return x + y;
-                                            }, 0)} Minutes</p>
+                                            }}> {recipe.durasi_menit} Minutes</p>
                                         </div>
                                     </Link>
                                 </div>

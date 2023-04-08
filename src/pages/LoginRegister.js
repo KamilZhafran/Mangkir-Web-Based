@@ -69,12 +69,11 @@ export class LoginRegister extends React.Component {
           if (responseData.token){
             window.location.href = '/';
           }else{
-            console.log("login gagal");
+            console.log("gagal karena tidak dapat token, kemungkinan ada salah di server");
           }
           // You can handle the response data here
         } catch (error) {
-          console.log(error);
-          // You can handle the error response data here
+          console.log("ini kalo salah kredensial");
         }
       };
     
