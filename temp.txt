@@ -1,0 +1,57 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+export class Home extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [],
+            error: null,
+            isLoaded: false
+        };
+    }
+
+    componentDidMount() {
+        this.setState({ isLoading: true });
+
+        fetch('http://127.0.0.1:8000/api/recipes')
+            .then(response => response.json())
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    data: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
+            // .then(data => this.setState({ data: data }));
+    }
+
+    render() {
+        const { data, isLoaded, error } = this.state;
+        console.log(data);
+
+        if (error){
+            return <div>Error: {error.message}</div>;
+        }else if (!isLoaded){
+            return <div>Loading....</div>
+        }else{
+            return (
+                <ul>
+                    {data.map(item => (
+                        <li key={item.recipeID}>
+                            <b>{item.judul}</b> {item.foto}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
+    }
+}
