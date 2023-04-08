@@ -17,35 +17,56 @@ export class Recipe extends React.Component {
                 color: "black",
                 activeColor: "yellow",
                 a11y: true,
-                onChange: newValue => {
-                    this.state.dataRate = newValue;
-                }
             },
             dataRate: 0,
-            sum: 0,
-            counter: 0,
-            dataRateAvg: 0.0
+            desc: '',
+            loggedInEmail: '',
         };
+
+        this.handleRatingChange = this.handleRatingChange.bind(this);
     }
 
-    componentDidMount() {
-        fetch('https://raw.githubusercontent.com/kodecocodes/recipes/master/Recipes.json')
+    handleRatingChange(newRate){
+        this.setState({dataRate: newRate});
+    }
+    handleDescChange = (event) => {
+        this.setState({ desc: event.target.value });
+      };
+
+    componentDidMount = async(event) => {
+        const id = parseInt(window.location.pathname.slice(-1));
+        const response = await fetch(`http://127.0.0.1:8000/api/recipe/${id}`,{
+            method: 'GET'
+        })
             .then(response => response.json())
             .then(data => this.setState({ data: data }));
     }
-
+    
     render() {
         const id = parseInt(window.location.pathname.slice(-1));
-        const { data } = this.state;
+        const { data, dataRate, desc, loggedInEmail } = this.state;
+        const author = data.author;
+        const dataRecipe = data.data_recipe;
+        const dataSteps = data.data_steps;
+        const dataIngredients = data.data_ingredients;
 
-        const currData = data[id]
+        const avgRating = async(event) => {
+            event.preventDefault();
+            console.log(this.state.dataRate);
+            const response = await fetch(`http://127.0.0.1:8000/api/recipe/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: author?.email, // ini masih salah harusnya email yang lagi login
+                    rating: this.state.dataRate,
+                    deskripsi: this.state.desc,
+                })
+            });
 
-        const avgRating = () => {
-            this.state.sum += this.state.dataRate;
-            this.state.counter++;
-
-            this.state.dataRateAvg = this.state.sum/this.state.counter;
-            console.log(this.state.dataRateAvg);
+            const res = await response.json();
+            console.log(res);
         }
 
         return (
@@ -59,34 +80,32 @@ export class Recipe extends React.Component {
                 </div>
 
                 <div className='row text-center'>
-                    <h2>{currData?.name}</h2>
+                    <h2>{dataRecipe?.judul}</h2>
                 </div>
 
                 <div className='row text-center'>
-                    <p>{currData?.timers.reduce(function (x, y) {
-                            return x + y;
-                        }, 0)} minute preparation</p>
+                    <p>{dataRecipe?.durasi_menit} minute preparation</p>
                 </div>
     
                 {/* Recipe Holder */}
                 <div className='row'>
                     <div className='col-md-6'>
                         <h5>Step-by-step:</h5>
-                        <ul>
-                            {currData?.steps.map((res) => {
+                        <ol>
+                            {dataSteps?.map((res) => {
                                 return (
-                                    <li>{res}</li>
+                                    <li>{res.deskripsi}</li>
                                 );
                             })}
-                        </ul>
+                        </ol>
                     </div>
     
                     <div className='col-md-6'>
                         <h5>Ingredients:</h5>
                         <ul>
-                            {currData?.ingredients.map((res) => {
+                            {dataIngredients?.map((res) => {
                                 return (
-                                    <li>{res.quantity} {res.name}</li>
+                                    <li>{res.quantity} {res.unit} {res.ingredient_name}</li>
                                 );
                             })}
                         </ul>
@@ -101,14 +120,14 @@ export class Recipe extends React.Component {
                         }} />
                     </div>
                     <div className='col-md-6'>
-                        <p>name_holder</p>
-                        <ReactStars {...this.state.stars}/>
-                        <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control'></textarea>
+                        <p>{author?.name}</p>
+                        <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
+                        <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange}></textarea>
                         <button className='btn btn-success' onClick={avgRating}>Submit</button>
                     </div>
                     <div className='col-md-3'></div>
                 </div>
-    
+                <p>Selected rating: {this.state.dataRate}</p>
             </div>
         );
     }

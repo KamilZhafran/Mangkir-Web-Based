@@ -95,7 +95,7 @@ export class Home extends React.Component {
                         {data?.map((recipe, index) => {
                             return (
                                 <div className='col-md-4 center-block'>
-                                    <Link to={`/recipe/${index}`} className='card' style={{
+                                    <Link to={`/recipe/${recipe.recipeID}`} className='card' style={{
                                         width: '18rem',
                                         marginTop: '10px',
                                         marginBottom: '10px',
