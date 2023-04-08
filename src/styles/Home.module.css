@@ -1,0 +1,36 @@
+.imgThumbCrop {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 200px;
+}
+
+.imgThumbCropBig {
+    object-fit: cover;
+    object-position: center;
+    width: 400px;
+    max-height: 250px;
+    margin-bottom: 1rem;
+}
+
+.bannerImgRounded {
+    border-radius: 50px;
+    background-image: url('/public/res/Home/bestofus-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bannerImgRoundedSmall {
+    border-radius: 100px;
+    background-image: url('/public/res/Home/small-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
