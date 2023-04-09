@@ -45,6 +45,14 @@ export class Favorite extends React.Component {
 
         // console.log(data);
 
+        // DELETE FAVORITE
+        // TODO: isi dari parameter setelah /favorite apa?
+        const deleteFavorite = async() => {
+            const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite/${favorite}`, {
+                method: 'DELETE'
+            })
+        }
+
         return (
             <div>
                 {/* Your Favorite */}
@@ -79,7 +87,9 @@ export class Favorite extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
+                                        <button className='btn' onClick={deleteFavorite}>
+                                            <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
+                                        </button>
                                         <div className='card-body'>
                                             <p className='card-text' style={{
                                                 padding: '5px'

@@ -87,9 +87,29 @@ export class Recipe extends React.Component {
             console.log(res);
         }
 
+        const addFavorite = async(event) => {
+            event.preventDefault();
+            const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite`, {
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify({
+                    data
+                })
+            });
+
+            const status = response.status;
+            const res = await response.json();
+            console.log(status, res);
+        }
+
         const isLoggedin = localStorage.getItem('access_token') !== "null";
 
-        console.log(author);
+        console.log(JSON.stringify({
+            recipeID: data.data_recipe.recipeID,
+            email: localStorage.getItem('loggedInEmail')
+        }));
 
         return (
             <div>
@@ -101,8 +121,20 @@ export class Recipe extends React.Component {
                     </div>
                 </div>
 
-                <div className='row text-center'>
-                    <h2 style={{color: 'white'}}>{dataRecipe?.judul}</h2>
+                <div className='row' style={{
+                    marginTop: '10px'
+                }}>
+                    <div className='col-md-7 text-end'>
+                        <h2 style={{color: 'white'}}>{dataRecipe?.judul}</h2>
+                    </div>
+                    <div className='col-md-5'>
+                        <button className='btn' onClick={addFavorite}>
+                            <img src="/res/navbar/favorite.svg" alt="" style={{
+                            width: '30px',
+                            height: '30px'
+                        }}/>
+                        </button>
+                    </div>
                 </div>
 
                 <div className='row text-center'>
@@ -110,7 +142,10 @@ export class Recipe extends React.Component {
                 </div>
     
                 {/* Recipe Holder */}
-                <div className='row'>
+                <div className='row' style={{
+                    marginLeft: '50px',
+                    marginRight: '50px'
+                }}>
                     <div className='col-md-6'>
                         <h5 style={{color: 'white'}}>Step-by-step:</h5>
                         <ol>
