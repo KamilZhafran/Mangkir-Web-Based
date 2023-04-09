@@ -3,3 +3,8 @@
     border-radius: 50px;
     padding: 50px;
 }
+
+.roundedCardSmall {
+    background-color: white;
+    border-radius: 40px;
+}

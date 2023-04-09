@@ -1,4 +1,3 @@
-import styles from './styles/navbar.module.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -11,6 +10,7 @@ import { Recipe } from './pages/Recipe';
 import { Profile } from './pages/Profile';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+import { Search } from './pages/Search';
 
 function App() {
   console.log(`${localStorage.getItem('access_token')} ${localStorage.getItem('loggedInEmail')}`);
@@ -24,6 +24,7 @@ function App() {
         <Route path='/input' element={<InputRecipe/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/login' element={<Login/>}></Route>
+        <Route path='/search' element={<Search/>}/>
       </Routes>
     </>
   );

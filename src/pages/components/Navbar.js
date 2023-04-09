@@ -15,7 +15,17 @@ export function Navbar() {
                     }}>Mangkir</Link>
                 <div className='collapse navbar-collapse'>
                 <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-                    <form action="search" className={`d-flex ${styles.roundedInput}`} role={'searchbox'}>
+                    <li className='nav-item'>
+                    <Link to='/search' className='nav-link' style={{
+                    color: 'white'
+                    }}>
+                    <img src="/res/navbar/search-white.svg" alt="" style={{
+                        height: '40px',
+                        width: '40px'
+                    }} />
+                    </Link>
+                    </li>
+                    {/* <form action="search" className={`d-flex ${styles.roundedInput}`} role={'searchbox'}>
                     <input type="search" placeholder='Input Recipe...' aria-label='Search' style={{
                         background: 'transparent',
                         border: 'none'
@@ -29,23 +39,12 @@ export function Navbar() {
                         width: '40px'
                         }} />
                     </button>
-                    </form>
+                    </form> */}
                     <li className='nav-item'>
                     <Link to='/favorite' className='nav-link' style={{
                     color: 'white'
                     }}>
                     <img src="/res/navbar/favorite.svg" alt="" style={{
-                        height: '40px',
-                        width: '40px'
-                    }} />
-                    </Link>
-                    </li>
-                    {/* FILTER */}
-                    <li className='nav-item'>
-                    <Link to='/' className='nav-link' style={{
-                    color: 'white'
-                    }}>
-                    <img src="/res/navbar/filter.svg" alt="" style={{
                         height: '40px',
                         width: '40px'
                     }} />
