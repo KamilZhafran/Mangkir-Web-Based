@@ -23,6 +23,7 @@ export class Recipe extends React.Component {
             dataRate: 0,
             desc: '',
             loggedInEmail: '',
+            id: 0,
         };
 
         this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -44,7 +45,6 @@ export class Recipe extends React.Component {
             .then(data => this.setState({ data: data }));
 
         const accessToken = localStorage.getItem('access_token');
-        console.log(JSON.stringify(accessToken));
         fetch('/api/user', {
             method: 'GET',
             headers: {
@@ -67,6 +67,7 @@ export class Recipe extends React.Component {
         const dataRecipe = data.data_recipe;
         const dataSteps = data.data_steps;
         const dataIngredients = data.data_ingredients;
+        const dataTools = data.data_tools;
 
         const avgRating = async(event) => {
             event.preventDefault();
@@ -88,6 +89,10 @@ export class Recipe extends React.Component {
         }
 
         const addFavorite = async(event) => {
+            this.setState({id: parseInt(window.location.pathname.slice(-1))});
+            // loggedInEmail = localStorage.getItem('loggedInEmail')
+            this.setState({loggedInEmail: localStorage.getItem('loggedInEmail')});
+            console.log(loggedInEmail);
             event.preventDefault();
             const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite`, {
                 method: 'POST',
@@ -95,7 +100,8 @@ export class Recipe extends React.Component {
                     'content-type' : 'application/json'
                 },
                 body: JSON.stringify({
-                    data
+                    id: this.state.id,
+                    email: this.state.loggedInEmail
                 })
             });
 
@@ -157,12 +163,23 @@ export class Recipe extends React.Component {
                         </ol>
                     </div>
     
-                    <div className='col-md-6'>
+                    <div className='col-md-2'>
                         <h5 style={{color: 'white'}}>Ingredients:</h5>
                         <ul>
                             {dataIngredients?.map((res) => {
                                 return (
                                     <li style={{color: 'white'}}>{res.quantity} {res.unit} {res.ingredient_name}</li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+
+                    <div className='col-md-4'>
+                        <h5 style={{color: 'white'}}>Tools:</h5>
+                        <ul>
+                            {dataTools?.map((res) => {
+                                return (
+                                    <li style={{color: 'white'}}>{res.nama_alat}</li>
                                 );
                             })}
                         </ul>
