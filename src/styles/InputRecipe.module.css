@@ -41,22 +41,69 @@
     /* color: transparent; */
 }
 
-.inRecipeSteps {
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    margin-bottom: 5%;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
 .inRecipeIngredients {
-    font-size: 20px;
+    font-size: 30px;
     font-family: "Poppins", sans-serif;
     margin-top: 150px;
     margin-bottom: 30px;
     margin-left: 50px;
+    margin-right: 50px;   
+}
+
+.inRecipeSteps {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
     margin-right: 50px;
-    
+}
+
+.inRecipeBackstory {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.inRecipeFoodOrigin {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.inRecipePortion {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.inRecipeVideoDuration {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.inRecipeUploadVideo{
+    margin-bottom: 5%;
+    margin-left: 600px;
+    margin-right: 600px;
+}
+
+.inRecipeUploadPhoto{
+    margin-left: 600px;
+    margin-right: 600px;
+}
+
+.inRecipeKategori{
+    margin-left: 50px;
+    margin-bottom: 30px;
 }
 
 h1 {
