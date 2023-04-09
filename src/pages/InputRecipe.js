@@ -24,13 +24,51 @@ export class InputRecipe extends React.Component {
                 rating: 0,
                 numReviews: 0
             }
-            const response = fetch(`http://127.0.0.1:8000/api/recipe/${id}`, {
+            // const recipesJson = {
+            //     emailAuthor: localStorage.getItem('loggedInEmail'),
+            //     judul: event.target.judul.value,
+            //     backstory: event.target.asalUsul.value,
+            //     asalDaerah: event.target.asalDaerah.value,
+            //     servings: event.target.porsi.value,
+            //     durasi_menit: event.target.durasiVideo,
+            //     kategori: event.target.kategori.value,
+            //     foto: event.target.foto.value,
+            //     rating: 0,
+            //     numReviews: 0
+            // }
+            // const recipesJson = {
+            //     emailAuthor: localStorage.getItem('loggedInEmail'),
+            //     judul: event.target.judul.value,
+            //     backstory: event.target.asalUsul.value,
+            //     asalDaerah: event.target.asalDaerah.value,
+            //     servings: event.target.porsi.value,
+            //     durasi_menit: event.target.durasiVideo,
+            //     kategori: event.target.kategori.value,
+            //     foto: event.target.foto.value,
+            //     rating: 0,
+            //     numReviews: 0
+            // }
+            const recipeResponse = fetch(`http://127.0.0.1:8000/api/recipe/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(recipesJson)
-            });            
+            }); 
+            // const recipeResponse = fetch(`http://127.0.0.1:8000/api//${id}`, {
+            //     method: 'PUT',
+            //     headers: {
+            //         'content-type': 'application/json'
+            //     },
+            //     body: JSON.stringify(recipesJson)
+            // });
+            // const recipeResponse = fetch(`http://127.0.0.1:8000/api//${id}`, {
+            //     method: 'PUT',
+            //     headers: {
+            //         'content-type': 'application/json'
+            //     },
+            //     body: JSON.stringify(recipesJson)
+            // });           
             // const res = await response.json();
             // const ingredientsJson = {
             //     // recipeID: gatau :),
