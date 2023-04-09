@@ -10,13 +10,17 @@ export class InputRecipe extends React.Component {
     }
 
     render() {
+        const postRecipe = () => {
+            
+        }
+
         return (
-            <div className={styles.bodyRecipe}>
+            <form onSubmit={postRecipe} className={styles.bodyRecipe}>
                 
                 <Navbar/>
                 <div className={`title ${styles.inRecipeTitle}`}>
                     <label for="nameTitle" className={`form-label ${styles.formLabelTitle}`}>Title</label>
-                    <input type="text" className={styles.formControl} id="nameTitle"/>
+                    <input type="text" className={styles.formControl} id="nameTitle" name='judul'/>
                 </div>   
                 <div className={styles.inRecipeIngredients}>
                     <label for="exampleFormControlTextarea1" className={`form-label ${styles.formLabel}`}>Ingredients</label>
@@ -43,17 +47,14 @@ export class InputRecipe extends React.Component {
                     <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="2"/>
                 </div>
                 <div className={`dropdown ${styles.inRecipeKategori}`}>
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Kategori
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Daging</a></li>
-                        <li><a class="dropdown-item" href="#">Buah</a></li>
-                        <li><a class="dropdown-item" href="#">Sayur</a></li>
-                        <li><a class="dropdown-item" href="#">Karbohidrat</a></li>
-                        <li><a class="dropdown-item" href="#">Manisan</a></li>
-                        <li><a class="dropdown-item" href="#">Minuman</a></li>
-                    </ul>
+                    <select class="btn btn-secondary dropdown-toggle" name="kategori" id="kategori">
+                        <option><a class="dropdown-item" href="#">Daging</a></option>
+                        <option><a class="dropdown-item" href="#">Buah</a></option>
+                        <option><a class="dropdown-item" href="#">Sayur</a></option>
+                        <option><a class="dropdown-item" href="#">Karbohidrat</a></option>
+                        <option><a class="dropdown-item" href="#">Manisan</a></option>
+                        <option><a class="dropdown-item" href="#">Minuman</a></option>
+                    </select>
                 </div>
                 <div className={styles.inRecipeUploadPhoto}>
                     <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Food Photo</label>
@@ -68,7 +69,7 @@ export class InputRecipe extends React.Component {
                     <button type="button" className="btn btn-outline-danger">Cancel</button>
                 </div>
                 <h1>...</h1>
-            </div>
+            </form>
         );
     }
 }
