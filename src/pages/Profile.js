@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from './components/Navbar';
 
 export class Profile extends React.Component {
     constructor(props) {
@@ -26,10 +27,13 @@ export class Profile extends React.Component {
         const logout = () => {
             localStorage.setItem('access_token', null);
             localStorage.setItem('loggedInEmail', null);
+            window.location.reload(true);
         }
 
         return (
             <div className="text-center">
+                
+                <Navbar/>
                 {isLoggedin?
                 <div>
                     <h1 style={{color: "white"}}>Profile</h1>

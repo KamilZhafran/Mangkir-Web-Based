@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
 
 export class Home extends React.Component {
     constructor(props) {
@@ -41,7 +42,8 @@ export class Home extends React.Component {
 
         return (
             <div>
-        
+                
+                <Navbar/>
                 {/* HEAD TITLE */}
                 <div className='container-fluid text-center'>
                     <div className='col'>

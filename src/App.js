@@ -16,67 +16,6 @@ function App() {
   console.log(`${localStorage.getItem('access_token')} ${localStorage.getItem('loggedInEmail')}`);
   return (
     <>
-      {/* NAVBAR SNIPPET */}
-      <div>
-        <nav className='navbar navbar-expand-lg navbar-light shadow-5-strong'>
-          <div className='container-fluid'>
-            <Link to="/" className='navbar-brand' style={{
-                  color: 'white'
-                }}>Mangkir</Link>
-            <div className='collapse navbar-collapse'>
-              <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-                <form action="search" className={`d-flex ${styles.roundedInput}`} role={'searchbox'}>
-                  <input type="search" placeholder='Input Recipe...' aria-label='Search' style={{
-                    background: 'transparent',
-                    border: 'none'
-                  }}/>
-                  <button className='btn' type='submit' style={{
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                  }}>
-                    <img src="/res/navbar/search.svg" alt="" style={{
-                      height: '40px',
-                      width: '40px'
-                    }} />
-                  </button>
-                </form>
-                <li className='nav-item'>
-                  <Link to='/favorite' className='nav-link' style={{
-                  color: 'white'
-                }}>
-                  <img src="/res/navbar/favorite.svg" alt="" style={{
-                    height: '40px',
-                    width: '40px'
-                  }} />
-                </Link>
-                </li>
-                {/* FILTER */}
-                <li className='nav-item'>
-                  <Link to='/' className='nav-link' style={{
-                  color: 'white'
-                }}>
-                  <img src="/res/navbar/filter.svg" alt="" style={{
-                    height: '40px',
-                    width: '40px'
-                  }} />
-                </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link to='/profile' className='nav-link' style={{
-                  color: 'white'
-                }}>
-                  <img src="/res/navbar/profile.svg" alt="" style={{
-                    height: '40px',
-                    width: '40px'
-                  }} />
-                </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-
       <Routes>
         <Route path='/register' element={<Register/>} />
         <Route path="/" element={<Home />} />

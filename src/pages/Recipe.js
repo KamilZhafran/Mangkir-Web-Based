@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating';
 import ReactStars from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
 
 export class Recipe extends React.Component {
     constructor(props) {
@@ -117,6 +118,7 @@ export class Recipe extends React.Component {
         return (
             <div>
                 
+                <Navbar/>
                 {/* Video Holder */}
                 <div className='container-fluid text-center'>
                     <div className='col d-flex justify-content-center'>

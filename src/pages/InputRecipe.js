@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import styles from '../styles/InputRecipe.module.css';
 import React from 'react';
+import { Navbar } from './components/Navbar';
 
 export class InputRecipe extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ export class InputRecipe extends React.Component {
     render() {
         return (
             <div className={styles.bodyRecipe}>
+                
+                <Navbar/>
                 <div className={`title ${styles.inRecipeTitle}`}>
                     <label for="nameTitle" className={`form-label ${styles.formLabelTitle}`}>Title</label>
                     <input type="text" className={styles.formControl} id="nameTitle"/>

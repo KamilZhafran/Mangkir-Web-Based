@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Favorite.module.css';
+import { Navbar } from './components/Navbar';
 
 export class Favorite extends React.Component {
     constructor(props) {
@@ -61,6 +62,8 @@ export class Favorite extends React.Component {
 
         return (
             <div>
+                
+                <Navbar/>
                 {/* Your Favorite */}
                 <div className='row'>
                     <div className='col-md-6 text-end'>
