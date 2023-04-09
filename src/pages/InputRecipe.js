@@ -10,8 +10,37 @@ export class InputRecipe extends React.Component {
     }
 
     render() {
-        const postRecipe = () => {
-            
+        const postRecipe = (event, id) => {
+            event.preventDefault();
+            const recipesJson = {
+                emailAuthor: localStorage.getItem('loggedInEmail'),
+                judul: event.target.judul.value,
+                backstory: event.target.asalUsul.value,
+                asalDaerah: event.target.asalDaerah.value,
+                servings: event.target.porsi.value,
+                durasi_menit: event.target.durasiVideo,
+                kategori: event.target.kategori.value,
+                foto: event.target.foto.value,
+                rating: 0,
+                numReviews: 0
+            }
+            const response = fetch(`http://127.0.0.1:8000/api/recipe/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(recipesJson)
+            });            
+            // const res = await response.json();
+            // const ingredientsJson = {
+            //     // recipeID: gatau :),
+            //     // unit: ,
+            //     // ingredient_name: ,
+            //     // quantity: ,
+            //     // created_at: ,
+            //     // updated_at: 
+            // }
+            console.log(JSON.stringify(recipesJson));
         }
 
         return (
@@ -58,15 +87,15 @@ export class InputRecipe extends React.Component {
                 </div>
                 <div className={styles.inRecipeUploadPhoto}>
                     <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Food Photo</label>
-                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file"/>
+                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file" name='foto'/>
                 </div><br/>
                 <div className={styles.inRecipeUploadVideo}>
                     <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Link Food Video</label>
                     <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="url"/>
                 </div><br/>
                 <div className="d-grid gap-2 col-6 mx-auto">
-                    <button type="button" className="btn btn-outline-info">Publish</button>
-                    <button type="button" className="btn btn-outline-danger">Cancel</button>
+                    <button type="submit" className="btn btn-outline-info" >Publish</button>
+                    <button type="reset" className="btn btn-outline-danger">Cancel</button>
                 </div>
                 <h1>...</h1>
             </form>
