@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import styles from '../styles/Recipe.module.css';
 import ReactPlayer from 'react-player';
 import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating';
 import ReactStars from 'react-rating-stars-component';
+import { Link } from 'react-router-dom';
 
 export class Recipe extends React.Component {
     constructor(props) {
@@ -85,6 +87,10 @@ export class Recipe extends React.Component {
             console.log(res);
         }
 
+        const isLoggedin = localStorage.getItem('access_token') !== "null";
+
+        console.log(author);
+
         return (
             <div>
                 
@@ -96,32 +102,32 @@ export class Recipe extends React.Component {
                 </div>
 
                 <div className='row text-center'>
-                    <h2>{dataRecipe?.judul}</h2>
+                    <h2 style={{color: 'white'}}>{dataRecipe?.judul}</h2>
                 </div>
 
                 <div className='row text-center'>
-                    <p>{dataRecipe?.durasi_menit} minute preparation</p>
+                    <p style={{color: 'white'}}>{dataRecipe?.durasi_menit} minute preparation</p>
                 </div>
     
                 {/* Recipe Holder */}
                 <div className='row'>
                     <div className='col-md-6'>
-                        <h5>Step-by-step:</h5>
+                        <h5 style={{color: 'white'}}>Step-by-step:</h5>
                         <ol>
                             {dataSteps?.map((res) => {
                                 return (
-                                    <li>{res.deskripsi}</li>
+                                    <li style={{color: 'white'}}>{res.deskripsi}</li>
                                 );
                             })}
                         </ol>
                     </div>
     
                     <div className='col-md-6'>
-                        <h5>Ingredients:</h5>
+                        <h5 style={{color: 'white'}}>Ingredients:</h5>
                         <ul>
                             {dataIngredients?.map((res) => {
                                 return (
-                                    <li>{res.quantity} {res.unit} {res.ingredient_name}</li>
+                                    <li style={{color: 'white'}}>{res.quantity} {res.unit} {res.ingredient_name}</li>
                                 );
                             })}
                         </ul>
@@ -129,21 +135,39 @@ export class Recipe extends React.Component {
                 </div>
     
                 {/* Rating */}
+                {isLoggedin?
                 <div className='row'>
-                    <div className='col-md-3 text-end'>
-                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='rounded-circle' style={{
-                            width: '100px'
-                        }} />
+                    <div className='col-md-2'></div>
+                    <div className={`row col-md-8 ${styles.roundedCard}`}>
+                        <div className='col-md-2 text-center'>
+                            <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" alt="" className='rounded-circle' style={{
+                                width: '100px'
+                            }} />
+                        </div>
+                        <div className='col-md-10'>
+                            <h3>{author?.name}</h3>
+                            <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
+                            <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange} style={{
+                                marginBottom: '10px'
+                            }}></textarea>
+                            <button className='btn btn-success' onClick={avgRating}>Submit</button>
+                        </div>
                     </div>
-                    <div className='col-md-6'>
-                        <p>{author?.name}</p>
-                        <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
-                        <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange}></textarea>
-                        <button className='btn btn-success' onClick={avgRating}>Submit</button>
+                    <div className='col-md-2'></div>
+                </div>
+                :
+                <div className='row'>
+                    <div className='col-md-3'></div>
+                    <div className={`col-md-6 ${styles.roundedCard}`}>
+                        <h2>Sign up to join the conversation</h2>
+                        <p>Add your feedback to the following recipes by logging in or registering.</p>
+                        <Link to="/login">
+                            <button className='btn btn-success'>Sign up or log in</button>
+                        </Link>
                     </div>
                     <div className='col-md-3'></div>
                 </div>
-                <p>Selected rating: {this.state.dataRate}</p>
+                }
             </div>
         );
     }

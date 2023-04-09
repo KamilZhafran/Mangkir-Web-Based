@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import styles from '../styles/Favorite.module.css';
 
 export class Favorite extends React.Component {
     constructor(props) {
@@ -51,7 +51,8 @@ export class Favorite extends React.Component {
                 <div className='row'>
                     <div className='col-md-6 text-end'>
                         <h1 style={{
-                            fontStyle: 'italic'
+                            fontStyle: 'italic',
+                            color: 'white'
                         }}>YOUR</h1>
                     </div>
                 </div>
@@ -59,7 +60,8 @@ export class Favorite extends React.Component {
                     <div className='col-md-6'></div>
                     <div className='col-md-6'>
                         <h1 style={{
-                            fontStyle: 'italic'
+                            fontStyle: 'italic',
+                            color: 'white'
                         }}>Favorites</h1>
                     </div>
                 </div>

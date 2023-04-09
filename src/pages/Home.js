@@ -62,22 +62,22 @@ export class Home extends React.Component {
                     fontStyle: 'italic',
                     padding: '20px'
                 }}>Best of Us</h3>
-                </div>
+                </div><br/>
 
                 {/* BEST OF US CARDS */}
                 <div className='container-fluid'>
                     <div className='row text-center'>
                         <div className='col-md-4'>
-                            <h5>{data[0]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[0]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: "white"}}>{data[0]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[0]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[1]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[1]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: "white"}}>{data[1]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[1]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                         <div className='col-md-4'>
-                            <h5>{data[2]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[2]?.foto}`} alt="" className='img-thumbnail img-thumb-crop-big'/>
+                            <h5 style={{color: "white"}}>{data[2]?.judul}</h5>
+                            <img src={`http://127.0.0.1:8000/foto/${data[2]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ export class Home extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt={recipe.name} className='card-img-top img-thumb-crop'/>
+                                        <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt={recipe.name} className={`card-img-top ${styles.imgThumbCrop}`}/>
                                         <div className='card-body'>
                                             <p className='card-text' style={{
                                                 padding: '10px'
@@ -135,6 +135,7 @@ export class Home extends React.Component {
                         </div>
                     </div>
                 </div>
+                <br/>
 
         </div>
         );

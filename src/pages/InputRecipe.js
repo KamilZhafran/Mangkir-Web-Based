@@ -27,11 +27,11 @@ export class InputRecipe extends React.Component {
                 </div>
                 <div className={styles.inRecipeUpload}>
                     <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Food Photo</label>
-                    <input className={`form-control${styles.formControl} form-control-lg${styles.formControlLg}`} id="formFileLg" type="file"/>
+                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file"/>
                 </div><br/>
                 <div className={styles.inRecipeUpload}>
                     <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Food Video</label>
-                    <input className={`form-control${styles.formControl} form-control-lg${styles.formControlLg}`} id="formFileLg" type="file"/>
+                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file"/>
                 </div><br/>
                 <div className="d-grid gap-2 col-6 mx-auto">
                     <button type="button" className="btn btn-outline-info">Publish</button>
