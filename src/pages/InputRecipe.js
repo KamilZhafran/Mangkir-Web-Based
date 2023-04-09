@@ -8,8 +8,6 @@ export class InputRecipe extends React.Component {
         super(props);
     }
 
-    // TODO: ubah isi className, kasih page id gitu; example: className="title" -> className="in-recipe-title"
-    //       ubah juga nama class nya di file css yang bersangkutan
     render() {
         return (
             <div className={styles.bodyRecipe}>
@@ -59,8 +57,8 @@ export class InputRecipe extends React.Component {
                     <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file"/>
                 </div><br/>
                 <div className={styles.inRecipeUploadVideo}>
-                    <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Food Video</label>
-                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="file"/>
+                    <label for="formFileLg" className={`form-label ${styles.formLabel}`}>Input Your Link Food Video</label>
+                    <input className={`form-control ${styles.formControl} form-control-lg ${styles.formControlLg}`} id="formFileLg" type="url"/>
                 </div><br/>
                 <div className="d-grid gap-2 col-6 mx-auto">
                     <button type="button" className="btn btn-outline-info">Publish</button>
