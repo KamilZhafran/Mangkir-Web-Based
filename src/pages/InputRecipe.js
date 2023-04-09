@@ -24,27 +24,27 @@ export class InputRecipe extends React.Component {
                 </div>   
                 <div className={styles.inRecipeIngredients}>
                     <label for="exampleFormControlTextarea1" className={`form-label ${styles.formLabel}`}>Ingredients</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="5"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='bahan' rows="5"/>
                 </div>
                 <div className={styles.inRecipeSteps}>
                     <label for="stepsList" className={styles.formLabel}>Steps</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="5"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='langkah' rows="5"/>
                 </div>
                 <div className={styles.inRecipeBackstory}>
                     <label for="stepsList" className={styles.formLabel}>Backstory</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="5"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='asalUsul' rows="5"/>
                 </div>
                 <div className={styles.inRecipeFoodOrigin}>
                     <label for="stepsList" className={styles.formLabel}>Food Origin</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="2"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='asalDaerah' rows="2"/>
                 </div>
                 <div className={styles.inRecipePortion}>
                     <label for="stepsList" className={styles.formLabel}>Portion</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="2"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='porsi' rows="2"/>
                 </div>
                 <div className={styles.inRecipeVideoDuration}>
                     <label for="stepsList" className={styles.formLabel}>Video Duration</label>
-                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" rows="2"/>
+                    <textarea type="text" className={`form-control ${styles.formControl}`} id="nameTitle" name='durasiVideo' rows="2"/>
                 </div>
                 <div className={`dropdown ${styles.inRecipeKategori}`}>
                     <select class="btn btn-secondary dropdown-toggle" name="kategori" id="kategori">
