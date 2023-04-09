@@ -42,6 +42,9 @@ export class Favorite extends React.Component {
 
     render() {
         const { data } = this.state;
+        const isLoggedin = localStorage.getItem('access_token') !== "null";
+
+        console.log(isLoggedin);
 
         // console.log(data);
 
@@ -75,6 +78,7 @@ export class Favorite extends React.Component {
                 </div>
 
                 {/* Favorite Cards */}
+                {isLoggedin?
                 <div className='container-fluid'>
                     <div className='row d-flex justify-content-center'>
                         {data.map((recipe, index) => {
@@ -87,9 +91,9 @@ export class Favorite extends React.Component {
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <button className='btn' onClick={deleteFavorite}>
+                                        {/* <button className='btn' onClick={deleteFavorite}>
                                             <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
-                                        </button>
+                                        </button> */}
                                         <div className='card-body'>
                                             <p className='card-text' style={{
                                                 padding: '5px'
@@ -101,6 +105,10 @@ export class Favorite extends React.Component {
                         })}
                     </div>
                 </div>
+                :
+                <h1 style={{color:'white'}}>login dlu</h1>
+                }
+                
             </div>
         );
     }
