@@ -67,6 +67,7 @@ export class Recipe extends React.Component {
         const dataRecipe = data.data_recipe;
         const dataSteps = data.data_steps;
         const dataIngredients = data.data_ingredients;
+        const dataTools = data.data_tools;
 
         const avgRating = async(event) => {
             event.preventDefault();
@@ -162,12 +163,23 @@ export class Recipe extends React.Component {
                         </ol>
                     </div>
     
-                    <div className='col-md-6'>
+                    <div className='col-md-2'>
                         <h5 style={{color: 'white'}}>Ingredients:</h5>
                         <ul>
                             {dataIngredients?.map((res) => {
                                 return (
                                     <li style={{color: 'white'}}>{res.quantity} {res.unit} {res.ingredient_name}</li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+
+                    <div className='col-md-4'>
+                        <h5 style={{color: 'white'}}>Tools:</h5>
+                        <ul>
+                            {dataTools?.map((res) => {
+                                return (
+                                    <li style={{color: 'white'}}>{res.nama_alat}</li>
                                 );
                             })}
                         </ul>
