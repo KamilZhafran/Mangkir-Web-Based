@@ -45,17 +45,18 @@ export class Favorite extends React.Component {
         const dataRecipes = data.dataRecipes;
         const isLoggedin = localStorage.getItem('access_token') !== "null";
 
-        console.log(isLoggedin);
+        console.log(data);
 
         // console.log(data);
 
         // DELETE FAVORITE
         // TODO: isi dari parameter setelah /favorite apa?
         const deleteFavorite = async(id) => {
+            console.log(id);
             const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite/${id}`, {
                 method: 'DELETE'
-            })
-            console.log(id);
+            });
+            window.location.reload(true);
         }
 
         return (
@@ -86,22 +87,38 @@ export class Favorite extends React.Component {
                         {dataRecipes?.map((recipe, index) => {
                             return (
                                 <div className='col-md-4'>
-                                    <Link to={`/recipe/${recipe.recipeID}`} className='card' style={{
+                                    <div className='card' style={{
                                         maxWidth: '20rem',
                                         marginTop: '10px',
                                         marginBottom: '10px',
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <button className='btn' onClick={() => deleteFavorite(recipe.favID)}>
-                                            <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
-                                        </button>
-                                        <div className='card-body'>
-                                            <p className='card-text' style={{
-                                                padding: '5px'
-                                            }}> {recipe.durasi_menit} Minutes</p>
-                                        </div>
-                                    </Link>
+                                        <Link to={`/recipe/${recipe.recipeID}`}>
+                                            <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className={`card-img-top ${styles.imgThumbCrop}`}/>
+                                        </Link>
+                                            <div className='d-flex' style={{
+                                                paddingTop: '10px',
+                                                paddingLeft: '10px',
+                                                paddingRight: '10px',
+                                            }}>
+                                                <Link to={`/recipe/${recipe.recipeID}`}  className='col-md-6' style={{
+                                                            color: 'black',
+                                                            textDecoration: 'none'
+                                                        }}>
+                                                    <div>
+                                                        <p>{recipe.durasi_menit} Minutes</p>
+                                                    </div>
+                                                </Link>
+                                                <button className='col-md-6 text-end btn' onClick={() => deleteFavorite(recipe.favID)}>
+                                                    <img src="/res/Favorite/delete.svg" alt="" style={{
+                                                        color: 'red',
+                                                        width: '40px',
+                                                        height: '40px',
+                                                    }}/>
+                                                </button>
+                                            </div>
+                                    </div>
                                 </div>
                             );
                         })}

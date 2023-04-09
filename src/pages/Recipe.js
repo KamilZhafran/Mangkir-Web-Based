@@ -92,6 +92,7 @@ export class Recipe extends React.Component {
             this.setState({id: parseInt(window.location.pathname.slice(-1))});
             // loggedInEmail = localStorage.getItem('loggedInEmail')
             this.setState({loggedInEmail: localStorage.getItem('loggedInEmail')});
+            const tempRecipe = new Map(Object.entries(dataRecipe));
             console.log(loggedInEmail);
             event.preventDefault();
             const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite`, {
@@ -101,7 +102,8 @@ export class Recipe extends React.Component {
                 },
                 body: JSON.stringify({
                     id: this.state.id,
-                    email: this.state.loggedInEmail
+                    recipeID: tempRecipe.get('recipeID'),
+                    email: localStorage.getItem('loggedInEmail')
                 })
             });
 
@@ -111,11 +113,6 @@ export class Recipe extends React.Component {
         }
 
         const isLoggedin = localStorage.getItem('access_token') !== "null";
-
-        console.log(JSON.stringify({
-            // recipeID: data.data_recipe.recipeID,
-            email: localStorage.getItem('loggedInEmail')
-        }));
 
         return (
             <div>
