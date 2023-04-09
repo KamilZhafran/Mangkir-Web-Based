@@ -42,15 +42,20 @@ export class Favorite extends React.Component {
 
     render() {
         const { data } = this.state;
+        const dataRecipes = data.dataRecipes;
+        const isLoggedin = localStorage.getItem('access_token') !== "null";
+
+        console.log(isLoggedin);
 
         // console.log(data);
 
         // DELETE FAVORITE
         // TODO: isi dari parameter setelah /favorite apa?
-        const deleteFavorite = async() => {
-            const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite/${favorite}`, {
+        const deleteFavorite = async(id) => {
+            const response = await fetch(`http://127.0.0.1:8000/api/recipes/favorite/${id}`, {
                 method: 'DELETE'
             })
+            console.log(id);
         }
 
         return (
@@ -75,19 +80,20 @@ export class Favorite extends React.Component {
                 </div>
 
                 {/* Favorite Cards */}
+                {isLoggedin?
                 <div className='container-fluid'>
                     <div className='row d-flex justify-content-center'>
-                        {data.map((recipe, index) => {
+                        {dataRecipes?.map((recipe, index) => {
                             return (
                                 <div className='col-md-4'>
-                                    <Link to={`/recipe/${index}`} className='card' style={{
+                                    <Link to={`/recipe/${recipe.recipeID}`} className='card' style={{
                                         maxWidth: '20rem',
                                         marginTop: '10px',
                                         marginBottom: '10px',
                                         textDecoration: 'none',
                                         color: 'black'
                                     }}>
-                                        <button className='btn' onClick={deleteFavorite}>
+                                        <button className='btn' onClick={() => deleteFavorite(recipe.favID)}>
                                             <img src={`http://127.0.0.1:8000/foto/${recipe.foto}`} alt="" className='card-img-top img-thumb-crop'/>
                                         </button>
                                         <div className='card-body'>
@@ -101,6 +107,10 @@ export class Favorite extends React.Component {
                         })}
                     </div>
                 </div>
+                :
+                <h1 style={{color:'white'}}>login dlu</h1>
+                }
+                
             </div>
         );
     }

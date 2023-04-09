@@ -107,7 +107,7 @@ export class Recipe extends React.Component {
         const isLoggedin = localStorage.getItem('access_token') !== "null";
 
         console.log(JSON.stringify({
-            recipeID: data.data_recipe.recipeID,
+            // recipeID: data.data_recipe.recipeID,
             email: localStorage.getItem('loggedInEmail')
         }));
 
