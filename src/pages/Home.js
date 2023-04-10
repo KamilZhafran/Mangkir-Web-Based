@@ -11,6 +11,7 @@ export class Home extends React.Component {
 
         this.state = {
             data: [],
+            best_data: [],
             error: null,
             isLoaded: false
         };
@@ -34,11 +35,26 @@ export class Home extends React.Component {
                 });
             })
             // .then(data => this.setState({ data: data }));
+            fetch('http://127.0.0.1:8000/api/recipes/best')
+            .then(response => response.json())
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    best_data: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
+            // .then(data => this.setState({ data: data }));
     }
 
     render() {
-        const { data } = this.state;
-        console.log(data);
+        const { data, best_data } = this.state;
+        console.log(best_data);
 
         return (
             <div>
@@ -70,16 +86,34 @@ export class Home extends React.Component {
                 <div className='container-fluid'>
                     <div className='row text-center'>
                         <div className='col-md-4'>
-                            <h5 style={{color: "white"}}>{data[0]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[0]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                        <h5 style={{color: "white"}}>{best_data[0]?.judul}</h5>
+                        <Link to={`/recipe/${best_data[0]?.recipeID}`} className='card' style={{
+                                        width: '24rem',
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}>
+                            <img src={`http://127.0.0.1:8000/foto/${best_data[0]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                        </Link>
                         </div>
                         <div className='col-md-4'>
                             <h5 style={{color: "white"}}>{data[1]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[1]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                            <Link to={`/recipe/${best_data[0]?.recipeID}`} className='card' style={{
+                                        width: '24rem',
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}>
+                            <img src={`http://127.0.0.1:8000/foto/${best_data[1]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                            </Link>
                         </div>
                         <div className='col-md-4'>
                             <h5 style={{color: "white"}}>{data[2]?.judul}</h5>
-                            <img src={`http://127.0.0.1:8000/foto/${data[2]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                            <Link to={`/recipe/${best_data[0]?.recipeID}`} className='card' style={{
+                                        width: '24rem',
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}>
+                            <img src={`http://127.0.0.1:8000/foto/${best_data[2]?.foto}`} alt="" className={`img-thumbnail ${styles.imgThumbCropBig}`}/>
+                            </Link>
                         </div>
                     </div>
                 </div>
