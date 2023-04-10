@@ -38,7 +38,7 @@ export class Recipe extends React.Component {
       };
 
     componentDidMount = async(event) => {
-        const id = parseInt(window.location.pathname.slice(-1));
+        const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const response = await fetch(`http://127.0.0.1:8000/api/recipe/${id}`,{
             method: 'GET'
         })
@@ -62,13 +62,14 @@ export class Recipe extends React.Component {
     }
     
     render() {
-        const id = parseInt(window.location.pathname.slice(-1));
+        const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const { data, dataRate, desc, loggedInEmail } = this.state;
         const author = data.author;
         const dataRecipe = data.data_recipe;
         const dataSteps = data.data_steps;
         const dataIngredients = data.data_ingredients;
         const dataTools = data.data_tools;
+        console.log(dataRecipe);
 
         const avgRating = async(event) => {
             event.preventDefault();
@@ -90,7 +91,7 @@ export class Recipe extends React.Component {
         }
 
         const addFavorite = async(event) => {
-            this.setState({id: parseInt(window.location.pathname.slice(-1))});
+            this.setState({id: window.location.href.substring(window.location.href.lastIndexOf('/') + 1)});
             // loggedInEmail = localStorage.getItem('loggedInEmail')
             this.setState({loggedInEmail: localStorage.getItem('loggedInEmail')});
             const tempRecipe = new Map(Object.entries(dataRecipe));
@@ -122,7 +123,7 @@ export class Recipe extends React.Component {
                 {/* Video Holder */}
                 <div className='container-fluid text-center'>
                     <div className='col d-flex justify-content-center'>
-                        <ReactPlayer url='https://www.youtube.com/watch?v=NcXzpCqKdUA&ab_channel=J.KenjiL%C3%B3pez-Alt'/>
+                        <ReactPlayer url={dataRecipe?.videoURL}/>
                     </div>
                 </div>
 
