@@ -130,8 +130,14 @@ export class Recipe extends React.Component {
                 <div className='row' style={{
                     marginTop: '10px'
                 }}>
-                    <div className='col-md-7 text-end'>
+                    <div className='col-md-7 text-end d-flex justify-content-end align-items-center align-self-center'>
                         <h2 style={{color: 'white'}}>{dataRecipe?.judul}</h2>
+                        <img src="/res/global/image/star.svg" alt="" style={{
+                            width: '20px',
+                            height: '20px',
+                            marginLeft: '36px'
+                        }} />
+                        <text style={{color: 'white'}}>{dataRecipe?.rating}</text>
                     </div>
                     <div className='col-md-5'>
                         <button className='btn' onClick={addFavorite}>
