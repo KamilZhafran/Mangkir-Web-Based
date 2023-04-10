@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import styles from '../styles/InputRecipe.module.css';
 import React from 'react';
 import { Navbar } from './components/Navbar';
+import { Link } from 'react-router-dom';
 
 export class InputRecipe extends React.Component {
     constructor(props) {
@@ -76,11 +77,15 @@ export class InputRecipe extends React.Component {
     }
     }
 
-    render() {
+    render() {        
+        const isLoggedin = localStorage.getItem('access_token') !== "null";
+
         return (
-            <form onSubmit={this.postRecipe} className={styles.bodyRecipe}>
-                
+            <div>
                 <Navbar/>
+                {isLoggedin?
+                <form onSubmit={this.postRecipe} className={styles.bodyRecipe}>
+                
                 <div className={`title ${styles.inRecipeTitle}`}>
                     <label for="nameTitle" className={`form-label ${styles.formLabelTitle}`}>Title</label>
                     <input type="text" className={styles.formControl} id="nameTitle" name='judul' value={this.state.judul} onChange={this.handleChange}/>
@@ -137,6 +142,15 @@ export class InputRecipe extends React.Component {
                 </div>
                 <h1>...</h1>
             </form>
+            :
+            <div>
+                <h2 style={{color: 'white'}}>You're not signed in yet!</h2>
+                <Link to='/login'>
+                    <button className="btn btn-success btn-lg">LOGIN</button>
+                </Link>
+            </div>
+            }
+            </div>
         );
     }
 }

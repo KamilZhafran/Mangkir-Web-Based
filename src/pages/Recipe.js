@@ -64,7 +64,6 @@ export class Recipe extends React.Component {
     render() {
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const { data, dataRate, desc, loggedInEmail } = this.state;
-        const author = data.author;
         const dataRecipe = data.data_recipe;
         const dataSteps = data.data_steps;
         const dataIngredients = data.data_ingredients;
@@ -203,7 +202,7 @@ export class Recipe extends React.Component {
                             }} />
                         </div>
                         <div className='col-md-10'>
-                            <h3>{author?.name}</h3>
+                            <h3>{localStorage.getItem('loggedInEmail').split(/([^@]+)/)[1]}</h3>
                             <ReactStars {...this.state.stars} onChange={this.handleRatingChange}/>
                             <textarea name="rating" id="recipe-rating" cols="15" rows="10" className='form-control' onChange={this.handleDescChange} style={{
                                 marginBottom: '10px'
