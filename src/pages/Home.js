@@ -96,8 +96,8 @@ export class Home extends React.Component {
                         </Link>
                         </div>
                         <div className='col-md-4'>
-                            <h5 style={{color: "white"}}>{data[1]?.judul}</h5>
-                            <Link to={`/recipe/${best_data[0]?.recipeID}`} className='card' style={{
+                            <h5 style={{color: "white"}}>{best_data[1]?.judul}</h5>
+                            <Link to={`/recipe/${best_data[1]?.recipeID}`} className='card' style={{
                                         width: '24rem',
                                         textDecoration: 'none',
                                         color: 'black'
@@ -106,8 +106,8 @@ export class Home extends React.Component {
                             </Link>
                         </div>
                         <div className='col-md-4'>
-                            <h5 style={{color: "white"}}>{data[2]?.judul}</h5>
-                            <Link to={`/recipe/${best_data[0]?.recipeID}`} className='card' style={{
+                            <h5 style={{color: "white"}}>{best_data[2]?.judul}</h5>
+                            <Link to={`/recipe/${best_data[2]?.recipeID}`} className='card' style={{
                                         width: '24rem',
                                         textDecoration: 'none',
                                         color: 'black'
